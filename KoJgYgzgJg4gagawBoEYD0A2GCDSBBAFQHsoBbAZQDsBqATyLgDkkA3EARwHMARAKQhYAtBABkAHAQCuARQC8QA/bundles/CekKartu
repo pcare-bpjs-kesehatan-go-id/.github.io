@@ -22,7 +22,7 @@ function cetak_KartuVaksinasi(n) {
         success: function(n) {
             if (n.metaData.code === 200) {
                 var i = n.response.list[0];
-                i.kartuVaksinasi.noTiket != null ? CreatePDF_KartuVaksinasi(i, 2) : ($("#nik").val(""), ShareMethod.showMessage(500, "Data Kartu Vaksin Tidak Dikenal"))
+                i.kartuVaksinasi.noTiket != null ? CreatePDF_KartuVaksinasi(i, 2) : ($("#nik").val(""), ShareMethod.showMessage(500, "Maaf saat ini Sistem sedang Maintenance."))
             } else $("#nik").val(""), ShareMethod.showMessage(n.metaData.code, n.metaData.message);
             t.ReloadImage()
         },
@@ -38,6 +38,6 @@ $(document).ready(function() {
     $("a[title ~= 'BotDetect']").css("visibility", "hidden");
     $("#btnCek").click(function() {
         for (var n = [], t, r = window.location.href.slice(window.location.href.indexOf("?") + 1).split("&"), i = 0; i < r.length; i++) t = r[i].split("="), n.push(t[0]), n[t[0]] = t[1];
-        n.r != undefined && n.i != undefined ? cetak_KartuVaksinasi(n.i) : ShareMethod.showMessage(500, "Data Kartu Vaksin Tidak Dikenal")
+        n.r != undefined && n.i != undefined ? cetak_KartuVaksinasi(n.i) : ShareMethod.showMessage(500, "Maaf saat ini Sistem sedang Maintenance.")
     })
 })
